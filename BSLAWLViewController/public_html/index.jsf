@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="index.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Header -->
+                        <af:outputText value="LOV without selectOneChoice" id="ot1" inlineStyle="font-size:x-large;"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        <af:listView value="#{bindings.DepartmentsView1.collectionModel}" var="item"
+                                     emptyText="#{bindings.DepartmentsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                     fetchSize="#{bindings.DepartmentsView1.rangeSize}" id="lv1">
+                            <af:listItem id="li1">
+                                <af:panelGridLayout id="pgl2">
+                                    <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                        <af:gridCell marginStart="5px" width="10%" id="gc3">
+                                            <af:outputFormatted value="Department" id="of4"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="90%" marginEnd="5px" id="gc4">
+                                            <af:outputFormatted value="#{item.bindings.DepartmentName.inputValue}" id="of7"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" id="gr4">
+                                        <af:gridCell marginStart="5px" width="20%" id="gc5">
+                                            <af:outputFormatted value="Manager" id="of5"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="80%" marginEnd="5px" id="gc6">
+                                            <af:outputFormatted value="ID: #{item.bindings.ManagerId.inputValue} Name: #{item.bindings.ManagerId.items[item.bindings.ManagerId.inputValue].label}"
+                                                                id="of1"/>
+                                            <!--
+                                            <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                                <af:outputFormatted value="ID: #{item.bindings.ManagerId.inputValue} Name:" id="of2"/>
+                                                <af:selectOneChoice value="#{item.bindings.ManagerId.inputValue}" label="#{row.bindings.ManagerId.label}"
+                                                                    required="#{bindings.DepartmentsView1.hints.ManagerId.mandatory}"
+                                                                    shortDesc="#{bindings.DepartmentsView1.hints.ManagerId.tooltip}" id="soc3" readOnly="true">
+                                                    <f:selectItems value="#{item.bindings.ManagerId.items}" id="si3"/>
+                                                    <f:validator binding="#{item.bindings.ManagerId.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelGroupLayout>-->
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+                                        <af:gridCell marginStart="5px" width="20%" id="gc7">
+                                            <af:outputFormatted value="Location" id="of6"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="80%" marginEnd="5px" id="gc8">
+                                            <af:outputFormatted value="#{item.bindings.LocationId.items[item.bindings.LocationId.inputValue].label}" id="of3"></af:outputFormatted>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:listItem>
+                        </af:listView>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

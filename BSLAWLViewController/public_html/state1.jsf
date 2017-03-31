@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="state1.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Header -->
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Content -->
+                        <af:listView value="#{bindings.DepartmentsView1.collectionModel}" var="item"
+                                     emptyText="#{bindings.DepartmentsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                     fetchSize="#{bindings.DepartmentsView1.rangeSize}" id="lv1">
+                            <af:listItem id="li1">
+                                <af:panelGridLayout id="pgl2">
+                                    <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                        <af:gridCell marginStart="5px" width="10%" id="gc3">
+                                            <af:outputFormatted value="Department" id="of4"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="90%" marginEnd="5px" id="gc4">
+                                            <af:outputFormatted value="#{item.bindings.DepartmentId.inputValue}" id="of1">
+                                                <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentsView1.hints.DepartmentId.format}"/>
+                                            </af:outputFormatted>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" id="gr4">
+                                        <af:gridCell marginStart="5px" width="10%" id="gc5">
+                                            <af:outputFormatted value="Manager" id="of5"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="90%" marginEnd="5px" id="gc6">
+                                            <af:outputFormatted value="#{item.bindings.ManagerId.inputValue}" id="of2">
+                                                <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentsView1.hints.ManagerId.format}"/>
+                                            </af:outputFormatted>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+                                        <af:gridCell marginStart="5px" width="10%" id="gc7">
+                                            <af:outputFormatted value="Location" id="of6"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="90%" marginEnd="5px" id="gc8">
+                                            <af:outputFormatted value="#{item.bindings.LocationId.inputValue}" id="of3">
+                                                <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentsView1.hints.LocationId.format}"/>
+                                            </af:outputFormatted>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:listItem>
+                        </af:listView>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DeptLocFkLink"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge"
+  EntityAssociation="de.hahn.blog.showlovattributewithoutlov.model.adfbc.entities.assocs.DeptLocFkAssoc">
+  <ViewLinkDefEnd
+    Name="LocationsView"
+    Cardinality="1"
+    Source="true"
+    Owner="de.hahn.blog.showlovattributewithoutlov.model.adfbc.views.LocationsView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="LocationsView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="de.hahn.blog.showlovattributewithoutlov.model.adfbc.views.LocationsView.LocationId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="DepartmentsView"
+    Cardinality="-1"
+    Owner="de.hahn.blog.showlovattributewithoutlov.model.adfbc.views.DepartmentsView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="DepartmentsView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="de.hahn.blog.showlovattributewithoutlov.model.adfbc.views.DepartmentsView.LocationId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>
